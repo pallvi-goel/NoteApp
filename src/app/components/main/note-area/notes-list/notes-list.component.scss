@@ -1,0 +1,24 @@
+.notes-container {
+  display: flex;
+  flex-direction: column;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  color: black;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  height: 40px;
+  background-color: lightgrey;
+  padding: 0;
+  padding-left: 10px;
+  margin: 0;
+  border: none;
+  transition: none;
+}
+
+.note {
+  display: flex;
+  justify-content: space-between;
+  border: none;
+  transition: none;
+}

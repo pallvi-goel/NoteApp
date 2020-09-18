@@ -1,0 +1,27 @@
+<div class="main-container">
+  <div class="main-header">
+    <mat-card class="example-card">
+      <button type="button" class="success" (click)="saveNote()">Save</button>
+
+      <input #su type="text" class ="shareUser" />
+      <button type="button" class="btn btn-default" (click)="shareNote()">
+        Share
+      </button>
+    </mat-card>
+  </div>
+  <div class="note-container">
+    <div class="note-title">
+      <mat-form-field class="example-full-width">
+        <mat-label>Title</mat-label>
+
+
+        <textarea #title matInput placeholder="My Note"></textarea>
+      </mat-form-field>
+    </div>
+    <div class="note">
+      <textarea #text id="w3review" name="w3review" rows="4" cols="50">
+          </textarea
+      >
+    </div>
+  </div>
+</div>

@@ -1,0 +1,76 @@
+{
+  "notes": [
+    {
+      "title": "wqaes",
+      "text": "My Note         dxczx ",
+      "id": 3
+    },
+    {
+      "title": "here",
+      "text": "My Note          you",
+      "userName": "default message",
+      "id": 4
+    },
+    {
+      "title": "hello",
+      "text": "My Note          my preety notes",
+      "userName": "Rishab",
+      "id": 5
+    },
+    {
+      "title": "smartest",
+      "text": "My Note          i am",
+      "userName": "Rishab",
+      "id": 6
+    },
+    {
+      "title": "mountain",
+      "text": "          here",
+      "userName": "prakhar",
+      "id": 7
+    },
+    {
+      "title": "food",
+      "text": "          food",
+      "userName": "prakhar",
+      "id": 8
+    }
+  ],
+  "sharedNotes": [
+    {
+      "title": "shared",
+      "text": "My Note         dxczx ",
+      "id": 3
+    },
+    {
+      "title": "shared",
+      "text": "My Note          you",
+      "userName": "default message",
+      "id": 4
+    },
+    {
+      "title": "shared",
+      "text": "My Note          mm",
+      "userName": "default message",
+      "id": 5
+    },
+    {
+      "title": "shared",
+      "text": "My Note          how are you",
+      "userName": "Rishab",
+      "id": 7
+    },
+    {
+      "title": "Bestf",
+      "text": "My Note          bff",
+      "userName": "rish",
+      "id": 8
+    },
+    {
+      "title": "Sharing ",
+      "text": "          sharing is best",
+      "userName": "prakhar",
+      "id": 9
+    }
+  ]
+}

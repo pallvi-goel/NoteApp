@@ -1,0 +1,68 @@
+<div class="main-div">
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title><h1 class="title">Note Stack</h1></mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="x">
+      <form class="example-form">
+        <table class="example-full-width" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field class="example-full-width">
+                <input
+                  matInput
+                  placeholder="Username"
+                  [(ngModel)]="username"
+                  name="username"
+                  required
+                  [ngClass]="{
+                    error: usernameError == true
+                  }"
+                />
+              </mat-form-field>
+              <mat-error>
+                <span class="error" *ngIf="usernameError"
+                  >Please Enter Username</span
+                >
+              </mat-error>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <mat-form-field class="example-full-width">
+                <input
+                  matInput
+                  placeholder="Password"
+                  type="password"
+                  [(ngModel)]="password"
+                  name="password"
+                  [ngClass]="{
+                    error: passwordError
+                  }"
+                  required
+                />
+              </mat-form-field>
+              <mat-error>
+                <span class="error" *ngIf="passwordError">
+                  Please Enter Password</span
+                >
+              </mat-error>
+            </td>
+          </tr>
+        </table>
+      </form>
+    </mat-card-content>
+    <button type="button" class="btn btn-success" (click)="login()">
+      Login
+    </button>
+
+    <button
+      class="button"
+      mat-raised-button
+      color="secondary"
+      (click)="register()"
+    >
+      Create Account
+    </button>
+  </mat-card>
+</div>

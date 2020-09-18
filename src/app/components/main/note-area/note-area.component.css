@@ -1,0 +1,19 @@
+.example-crd {
+  display: flex;
+  flex-direction: column;
+  height: 522px;
+  min-width: 15%;
+  background-color: green;
+}
+.note-panel {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+button {
+  border: 1px solid green;
+  border-radius: 10px;
+}
+.note-area {
+  width: 80%;
+}

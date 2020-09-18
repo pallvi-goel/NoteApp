@@ -1,0 +1,12 @@
+<mat-card class="header">
+  <h4>Title</h4>
+  <h4>Text</h4>
+  <h4>Action</h4>
+</mat-card>
+<div class="notes-container" *ngFor="let note of notes">
+  <mat-card #tem class="note">
+    <span>{{ note.title }}</span>
+    <span>{{ note.text }}</span>
+    <button (click)="deleteNote(note.id)">delete</button>
+  </mat-card>
+</div>

@@ -1,0 +1,21 @@
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  transition: none;
+  box-shadow: none;
+}
+.user-name {
+  font-size: 0.1rem;
+  font-weight: lighter;
+}
+.logout-container {
+  display: flex;
+}
+
+.title {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-weight: bolder;
+  color: green;
+  text-shadow: green;
+  text-decoration: green;
+}

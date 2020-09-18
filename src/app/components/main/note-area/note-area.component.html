@@ -1,0 +1,35 @@
+<div class="note-panel">
+  <mat-card class="example-crd">
+    <button
+      type="button"
+      class="btn btn-success"
+      (click)="WorkspaceComponentTrue()"
+    >
+      Add Notes
+    </button>
+
+    <button
+      class="button"
+      mat-raised-button
+      color="secondary"
+      (click)="NoteListComponentTrue()"
+    >
+      All Notes
+    </button>
+    <button
+      class="button"
+      mat-raised-button
+      color="secondary"
+      (click)="SharedNotesComponentTrue()"
+    >
+      Shared Notes
+    </button>
+  </mat-card>
+  <div class="note-area">
+    <app-workspace *ngIf="isWorkspaceComponent"></app-workspace>
+    <app-notes-list
+      *ngIf="isNoteListComponent"
+      [sharedNotes]="sharedNotes"
+    ></app-notes-list>
+  </div>
+</div>

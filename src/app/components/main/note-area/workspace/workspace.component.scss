@@ -1,0 +1,30 @@
+.example-card {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0;
+  margin: 0;
+  transition: none;
+  box-shadow: none;
+}
+button {
+  border: 0;
+  margin: 0;
+  padding: 7px;
+}
+.success {
+  border: 0;
+  margin: 0;
+  background-color: green;
+}
+.example-full-width {
+  width: 100%;
+}
+#w3review {
+  border: 0;
+  overflow: hidden;
+  width: 100%;
+  height: 350px;
+}
+.shareUser {
+  width: 50px;
+}
