@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
+import { NotesService } from 'src/app/services/notes.service';
 import { LoginService } from "../../services/login.service";
 @Component({
   selector: "app-login",
@@ -11,6 +12,7 @@ export class LoginComponent implements OnInit {
 
   public username: string;
   public password: string;
+  public userId:number;
   public usernameError: boolean = false;
   public passwordError: boolean = false;
 
@@ -19,7 +21,6 @@ export class LoginComponent implements OnInit {
   login(): void {
     this.validateFormFields();
 var isAuthenticated: boolean;
-    this.loginService.setUserName(this.username);
    var a = this.loginService.login().subscribe((x)=>
    {
    console.log(x);
@@ -32,13 +33,15 @@ var isAuthenticated: boolean;
   }
 else
 {
+  this.userId = isAuthenticated[0].id;
+  this.loginService.setUserName(this.userId);
+
+  console.log(this.userId);
  this.router.navigate(["/main"]);
 }
-  return isAuthenticated;
    });
-   debugger;
   
-
+   debugger;
    
 
   }

@@ -16,11 +16,11 @@ export class NotesListComponent implements OnInit {
   
   @Input() sharedNotes: boolean;
   @ViewChild("tem") tem: ElementRef;
-  private userName: string;
+  private userId: number;
   notes: Note[];
 
   ngOnInit() {
-    this.userName = this.loginService.username;
+    this.userId = this.loginService.userId;
     this.sharedNotes ? this.getSharedNotes() : this.getNotes();
 
     /*if (this.sharedNotes) {
@@ -41,16 +41,17 @@ export class NotesListComponent implements OnInit {
     }
     */
   }
-  deleteNote(id: number) {
-    this.tem.nativeElement.innerHtml = "";
-    this.notesService.deleteNote(id);
+  deleteNote() {
+    debugger;
+    // this.tem.nativeElement.innerHtml = "";
+    // this.notesService.deleteNote(id);
   }
   
   getNotes() {
     this.notesService
       .getNotes()
       .subscribe(
-        (x) => (this.notes = x.filter((note) => note.userName == this.userName))
+        (x) => (this.notes = x.filter((note) => note.ownerId == this.userId))
       );
   }
 

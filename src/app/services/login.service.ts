@@ -10,11 +10,13 @@ export class LoginService {
   constructor(private http: HttpClient) {}
   public username: string;
   public password: string;
+  public userId: number;
 
-  setUserName(userName: string) {
-    this.username = userName;
+  setUserName(userName: number) {
+    this.userId = userName;
+    console.log(this.userId);
   }
-  register(username: string, password: string) {
+  register(username: string, password: string) {    
     var user = new User(username,password);
     this.http
     .post("http://localhost:3000/users", user)

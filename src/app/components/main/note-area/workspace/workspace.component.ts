@@ -20,24 +20,20 @@ export class WorkspaceComponent implements OnInit {
 
   @Input("sharedNotes") sharedNotes: boolean;
   private note: Note;
-  private userName: string;
+  private ownerId: number;
   ngOnInit() {
-    this.userName = this.loginService.username;
-
+  
     if (!this.shareNote) {
       this.deleteButton.nativeElement.disabled = true;
     }
   }
   saveNote() {
-    //construct note should be in component class or typescruot fike where shoukd be it present
-
+    this.ownerId = this.loginService.userId;
     this.note = new Note(
       this.title.nativeElement.value,
       this.text.nativeElement.value,
-      this.userName
+      this.ownerId
     );
-
-    console.log(this.note.userName);
     this.notesService.saveNote(this.note);
   }
   deleteNote() {
@@ -52,7 +48,6 @@ export class WorkspaceComponent implements OnInit {
       this.shareu.nativeElement.value
     );
 
-    console.log(this.note.userName);
     this.notesService.shareNote(this.note);
   }
 }
