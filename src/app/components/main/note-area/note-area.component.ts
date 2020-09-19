@@ -1,5 +1,4 @@
 import { Component, OnInit } from "@angular/core";
-import { NotesService } from "src/app/services/notes.service";
 
 @Component({
   selector: "app-note-area",
@@ -10,15 +9,16 @@ export class NoteAreaComponent implements OnInit {
   isNoteListComponent: boolean = false;
   sharedNotes: boolean = false;
   isWorkspaceComponent: boolean = false;
-  constructor(private notesService: NotesService) {}
+  constructor() {}
 
   ngOnInit() {}
-  WorkspaceComponentTrue() {
+  //method name should be aligned with ui button naming conventions
+  onAddNotesClick() {
     this.isWorkspaceComponent = true;
     this.isNoteListComponent = false;
     this.sharedNotes = false;
   }
-  NoteListComponentTrue() {
+  onAllNotesClick() {
     this.isWorkspaceComponent = false;
     this.isNoteListComponent = true;
     this.sharedNotes = false;
@@ -28,4 +28,5 @@ export class NoteAreaComponent implements OnInit {
     this.isNoteListComponent = true;
     this.sharedNotes = true;
   }
+  
 }

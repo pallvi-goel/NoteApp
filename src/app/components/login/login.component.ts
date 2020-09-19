@@ -1,5 +1,4 @@
 import { Component, OnInit } from "@angular/core";
-
 import { Router } from "@angular/router";
 import { LoginService } from "../../services/login.service";
 @Component({
@@ -16,26 +15,43 @@ export class LoginComponent implements OnInit {
   public passwordError: boolean = false;
 
   ngOnInit() {}
-  ngDoCheck() {
-    //whenever user inputs any value this happens
-    this.loginService.username = this.username;
-    console.log(this.username);
-
-    console.log(this.password);
-    this.loginService.password = this.password;
-  }
-  //#region
+  
   login(): void {
-    if (this.username == " " || this.username == "") {
-      this.usernameError = true;
-    }
-    if (this.password == " " || this.password == "") {
-      this.passwordError = true;
-    }
-
+    this.validateFormFields();
+var isAuthenticated: boolean;
     this.loginService.setUserName(this.username);
+   var a = this.loginService.login().subscribe((x)=>
+   {
+   console.log(x);
+   
+  var isAuthenticated= x.filter((user) => this.authenticateUser(user))
+  console.log(isAuthenticated);
+  if(isAuthenticated.length<=0)
+  {
+   this.router.navigate(["/login"]);
+  }
+else
+{
+ this.router.navigate(["/main"]);
+}
+  return isAuthenticated;
+   });
+   debugger;
+  
 
-    if (this.loginService.login()) this.router.navigate(["/main"]);
+   
+
+  }
+
+  private authenticateUser(x: any): any {
+  console.log(x.userName, x.password);
+    var v= (this.username == x.userName) && (this.password == x.password);
+    return v;
+  }
+
+  private validateFormFields() {
+    (this.username == "" || this.username == " ") ? this.usernameError = true : this.usernameError = false;
+    (this.password == "" || this.password == " ") ? this.passwordError = true : this.passwordError = false;
   }
 
   register() {

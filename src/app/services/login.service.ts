@@ -1,36 +1,33 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from "@angular/core";
-import { Note } from "../models/note";
-import { Notes } from "../models/notes";
-import { Base64 } from "js-base64";
-import { BehaviorSubject } from "rxjs";
+import { BehaviorSubject, Observable } from "rxjs";
+import { User } from '../models/user';
 
 @Injectable({
   providedIn: "root",
 })
 export class LoginService {
-  constructor() {}
+  constructor(private http: HttpClient) {}
   public username: string;
   public password: string;
 
-  private userNameSubject = new BehaviorSubject("default message");
-  userName$ = this.userNameSubject.asObservable();
   setUserName(userName: string) {
-    console.log(userName);
     this.username = userName;
-    this.userNameSubject.next(userName);
+  }
+  register(username: string, password: string) {
+    var user = new User(username,password);
+    this.http
+    .post("http://localhost:3000/users", user)
+    .subscribe((x) => console.log(x));
+     localStorage.setItem(username, password);
   }
 
-  register(username: string, password: string) {
-    // var accessToken = Base64.encode(password);
-    //var encodedPassword = btoa(password);
-    // var accessToken = encodedPassword;
-    localStorage.setItem(username, password);
-  }
-  login() {
-    var token = localStorage.getItem(this.username);
-    //   var accessToken = Base64.decode(this.password);
-    if (token == this.password) {
-      return true;
-    } else return false;
+  login(isAuthenticated: boolean = false) 
+    :Observable<any> {
+      return this.http.get("http://localhost:3000/users");
+
+    // var token = localStorage.getItem(this.username);
+    // if(token == this.password) isAuthenticated = true ;
+    // return isAuthenticated;    
   }
 }

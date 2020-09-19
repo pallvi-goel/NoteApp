@@ -1,6 +1,4 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from "@angular/core";
-import { async } from "@angular/core/testing";
-import { element } from "protractor";
 import { Note } from "src/app/models/note";
 import { LoginService } from "src/app/services/login.service";
 import { NotesService } from "src/app/services/notes.service";
@@ -11,39 +9,43 @@ import { NotesService } from "src/app/services/notes.service";
   styleUrls: ["./notes-list.component.scss"],
 })
 export class NotesListComponent implements OnInit {
-  @Input() sharedNotes: boolean;
-  @ViewChild("tem") tem: ElementRef;
-  private userName: string;
-  notes: Note[];
   constructor(
     public notesService: NotesService,
     public loginService: LoginService
   ) {}
+  
+  @Input() sharedNotes: boolean;
+  @ViewChild("tem") tem: ElementRef;
+  private userName: string;
+  notes: Note[];
 
   ngOnInit() {
     this.userName = this.loginService.username;
-    if (this.sharedNotes) {
+    this.sharedNotes ? this.getSharedNotes() : this.getNotes();
+
+    /*if (this.sharedNotes) {
       this.getSharedNotes();
     } else {
       this.getNotes();
     }
+    */
   }
   ngDoCheck(): void {
     console.log(this.sharedNotes);
 
-    if (this.sharedNotes) {
+    this.sharedNotes ? this.getSharedNotes() : this.getNotes();
+   /* if (this.sharedNotes) {
       this.getSharedNotes();
     } else {
       this.getNotes();
     }
+    */
   }
   deleteNote(id: number) {
-    //  document.getel;
-    // this.tem.nativeElement.remove();
-    this.tem.nativeElement.style.display = "hidden";
-    // this.text.nativeElement.value = "";
+    this.tem.nativeElement.innerHtml = "";
     this.notesService.deleteNote(id);
   }
+  
   getNotes() {
     this.notesService
       .getNotes()

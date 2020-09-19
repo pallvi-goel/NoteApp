@@ -29,6 +29,8 @@ export class WorkspaceComponent implements OnInit {
     }
   }
   saveNote() {
+    //construct note should be in component class or typescruot fike where shoukd be it present
+
     this.note = new Note(
       this.title.nativeElement.value,
       this.text.nativeElement.value,
@@ -44,14 +46,11 @@ export class WorkspaceComponent implements OnInit {
     //this.notesService.deleteNote(this.note);
   }
   shareNote() {
-    debugger;
-    console.log("share notes");
     this.note = new Note(
       this.title.nativeElement.value,
       this.text.nativeElement.value,
       this.shareu.nativeElement.value
     );
-    console.log(this.shareu.nativeElement.value);
 
     console.log(this.note.userName);
     this.notesService.shareNote(this.note);

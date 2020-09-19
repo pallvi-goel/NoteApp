@@ -6,7 +6,6 @@ import {
   RouterStateSnapshot,
 } from "@angular/router";
 import { LoginService } from "../services/login.service";
-import { Base64 } from "js-base64";
 
 @Injectable({
   providedIn: "root",
@@ -14,7 +13,7 @@ import { Base64 } from "js-base64";
 export class AuthGuardService implements CanActivate {
   constructor(private route: Router, private loginService: LoginService) {}
 
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+  canActivate() {
     if (this.loginService.login()) {
       // logged in so return true
       return true;
