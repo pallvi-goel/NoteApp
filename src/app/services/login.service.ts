@@ -14,7 +14,7 @@ export class LoginService {
 
   setUserName(userName: number) {
     this.userId = userName;
-    console.log(this.userId);
+    console.log(this.userId); 
   }
   register(username: string, password: string) {    
     var user = new User(username,password);

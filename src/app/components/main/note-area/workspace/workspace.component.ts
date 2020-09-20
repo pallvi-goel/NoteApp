@@ -48,6 +48,6 @@ export class WorkspaceComponent implements OnInit {
       this.shareu.nativeElement.value
     );
 
-    this.notesService.shareNote(this.note);
+ //   this.notesService.shareNote(this.note);
   }
 }

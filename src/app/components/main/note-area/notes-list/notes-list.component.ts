@@ -18,7 +18,7 @@ export class NotesListComponent implements OnInit {
   @ViewChild("tem") tem: ElementRef;
   private userId: number;
   notes: Note[];
-
+  private note: Note;
   ngOnInit() {
     this.userId = this.loginService.userId;
     this.sharedNotes ? this.getSharedNotes() : this.getNotes();
@@ -31,9 +31,9 @@ export class NotesListComponent implements OnInit {
     */
   }
   ngDoCheck(): void {
-    console.log(this.sharedNotes);
+    // console.log(this.sharedNotes);
 
-    this.sharedNotes ? this.getSharedNotes() : this.getNotes();
+    // this.sharedNotes ? this.getSharedNotes() : this.getNotes();
    /* if (this.sharedNotes) {
       this.getSharedNotes();
     } else {
@@ -41,12 +41,16 @@ export class NotesListComponent implements OnInit {
     }
     */
   }
-  deleteNote() {
+  deleteNote(id:number) {
+   console.log("hii");
     debugger;
-    // this.tem.nativeElement.innerHtml = "";
-    // this.notesService.deleteNote(id);
+
+    this.notesService.deleteNote(id);
+  //  this.tem.nativeElement.d
   }
-  
+  logout(){
+    console.log("hiiii");
+  }
   getNotes() {
     this.notesService
       .getNotes()
@@ -54,12 +58,23 @@ export class NotesListComponent implements OnInit {
         (x) => (this.notes = x.filter((note) => note.ownerId == this.userId))
       );
   }
+  shareNote(noteId:number,shareWith:number) {
 
+    this.notesService.shareNote(noteId, shareWith);
+
+    this.note = new Note(
+      this.title.nativeElement.value,
+      this.text.nativeElement.value,
+      this.shareu.nativeElement.value
+    );
+
+    this.notesService.shareNote(this.note);
+  }
   getSharedNotes() {
-    this.notesService
-      .getSharedNotes()
-      .subscribe(
-        (x) => (this.notes = x.filter((note) => note.userName == this.userName))
-      );
+    // this.notesService
+    //   .getSharedNotes()
+    //   .subscribe(
+    //     (x) => (this.notes = x.filter((note) => note.userName == this.userName))
+    //   );
   }
 }

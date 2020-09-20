@@ -74,12 +74,6 @@
       "title": "d",
       "text": "          de",
       "id": 16
-    },
-    {
-      "title": "sdc",
-      "text": "          dd",
-      "ownerId": 1,
-      "id": 17
     }
   ],
   "sharedNotes": [
@@ -124,6 +118,11 @@
       "userName": "indu",
       "password": "indu",
       "id": 1
+    },
+    {
+      "userName": "ewd",
+      "password": "wd",
+      "id": 2
     }
   ]
 }

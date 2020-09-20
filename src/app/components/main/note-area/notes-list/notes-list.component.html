@@ -7,6 +7,11 @@
   <mat-card #tem class="note">
     <span>{{ note.title }}</span>
     <span>{{ note.text }}</span>
-    <button (click)="deleteNote()">delete</button>
+
+    <button type="button"  (click)="deleteNote(note.id)">delete</button>
+    <input #su type="text" class ="shareUser" />
+    <button type="button" class="btn btn-default" (click)="shareNote(note.id)">
+      Share
+    </button>
   </mat-card>
 </div>

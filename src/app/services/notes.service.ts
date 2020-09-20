@@ -33,10 +33,14 @@ export class NotesService {
     return this.http.get("http://localhost:3000/sharedNotes");
   }
 
-  shareNote(note: Note) {
-    this.http
-      .post("http://localhost:3000/sharedNotes", note)
-      .subscribe((x) => console.log(x));
+  shareNote(noteId:number,shareWith:number) {
+
+    var url = "http://localhost:3000/notes".concat(noteId.toString());
+    var r= this.http.get(url).subscribe((x)=> console.log(x));
+
+    this.http.put(url).subscribe((x) =>console.log(x));
+
+    //  .subscribe((x) => console.log(x));
     console.log(" shared api is called");
   }
 }
